@@ -1,0 +1,59 @@
+name: Samuel Python CI Workflow
+
+# Defines the event that triggers this workflow
+on:
+#Run the workflow every time code is pushed to the repository
+  push:
+
+# Defines the jobs that will run in this workflow
+jobs:
+
+  # Name of the job
+  python-ci:
+
+    # Uses a GitHub-hosted runner with Ubuntu operating system
+    runs-on: ubuntu-latest
+
+    # Steps are the actions that GitHub will perform
+    steps:
+
+      # Step 1: Download the code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      # Step 2: Set up Python environment
+      # Installs Python so the workflow can run Python commands
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+
+      # Step 3: Install project dependencies
+      # Reads requirements.txt and installs all required packages
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+
+      # Step 4: Install flake8 for code quality checking
+      # Flake8 checks Python code for formatting and style issues
+      - name: Install flake8
+        run: |
+          pip install flake8
+
+
+      # Step 5: Run linting
+      # Checks if the Python code follows proper coding standards
+      - name: Run linting with flake8
+        run: |
+          flake8 .
+
+
+      # Step 6: Run unit tests
+      # Uses Python's built-in unittest framework
+      # to ensure if the program works correctly
+      - name: Run unit tests
+        run: |
+          python -m unittest discover
