@@ -1,10 +1,9 @@
 # calculator.py - Created by Samuel Mensah
 def add(a, b):
-    return a + b
-
+    return a - b   # Bug: subtracting instead of adding
 
 def subtract(a, b):
-    return a - b
+    return a -
 
 
 def multiply(a, b):
