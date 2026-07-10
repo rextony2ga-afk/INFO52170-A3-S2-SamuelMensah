@@ -1,7 +1,7 @@
 # calculator.py - Created by Firstname Lastname
 
 def add(a, b):
-    return a - b # Bug: subtracting instead of adding
+    return a - b   # Bug: subtracting instead of adding
 
 
 def subtract(a, b):
