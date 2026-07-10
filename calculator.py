@@ -1,6 +1,7 @@
-# calculator.py - Created by Samuel Mensah
+# calculator.py - Created by Firstname Lastname
+
 def add(a, b):
-    return a + b
+    return a + b   # Fixed
 
 
 def subtract(a, b):
